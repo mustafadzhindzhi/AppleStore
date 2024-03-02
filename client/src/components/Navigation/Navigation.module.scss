@@ -62,6 +62,20 @@
   }
 }
 
+.promo-sign {
+  position: relative;
+  display: inline-block;
+  background-color: red;
+  border-radius: 50%;
+  padding: 3px;
+  margin-left: 5px;
+}
+
+.percentage {
+  color: black;
+  font-size: 1rem; 
+}
+
 .navbar__products-icons {
   display: flex;
   padding-right: 2rem;
@@ -71,7 +85,6 @@
   a {
     text-decoration: none;
   }
-
 
   .icon {
     position: relative;
