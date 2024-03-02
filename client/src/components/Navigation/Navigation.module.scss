@@ -49,7 +49,7 @@
       margin-right: 15px;
       cursor: pointer;
       color: white;
-      transition: opacity 0.4s ease; 
+      transition: opacity 0.4s ease;
 
       &.is-hovered {
         opacity: 0.6;
@@ -64,10 +64,40 @@
 
 .navbar__products-icons {
   display: flex;
+  padding-right: 2rem;
+  font-size: 1.2rem;
+  height: 50px;
+
+  a {
+    text-decoration: none;
+  }
+
 
   .icon {
-    margin-left: 15px;
+    position: relative;
+    margin-left: 1.5rem;
     color: white;
     cursor: pointer;
+    flex-shrink: 0; 
+    display: flex; 
+    align-items: center; 
+  }
+
+  .icon::before {
+    content: '';
+    position: absolute;
+    top: 0; 
+    left: -10px;
+    width: calc(100% + 20px); 
+    height: 100%;
+    background-color: rgb(64, 62, 62);
+    border-radius: 3rem;
+    opacity: 0;
+    transition: opacity 0.1s ease-in; 
+    z-index: -1;
+  }
+
+  .icon:hover::before {
+    opacity: 1;
   }
 }
