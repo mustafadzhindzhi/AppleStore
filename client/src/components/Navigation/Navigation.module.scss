@@ -30,13 +30,9 @@
   align-items: center;
   justify-content: center;
   flex-grow: 1;
-  padding-left: 2rem;
 }
 
 .navbar__products {
-  padding-left: 5rem;
-  display: flex;
-
   ul {
     list-style: none;
     padding: 0;
@@ -54,26 +50,22 @@
       &.is-hovered {
         opacity: 0.6;
       }
-
-      &:last-child {
-        margin-right: 0;
-      }
     }
   }
-}
 
-.promo-sign {
-  position: relative;
-  display: inline-block;
-  background-color: red;
-  border-radius: 50%;
-  padding: 3px;
-  margin-left: 5px;
-}
-
-.percentage {
-  color: black;
-  font-size: 1rem; 
+  .promo-sign {
+    position: relative;
+    display: inline-block;
+    background-color: red;
+    border-radius: 50%;
+    padding: 3px;
+    margin-left: 5px;
+  }
+  
+  .percentage {
+    color: black;
+    font-size: 1rem; 
+  }
 }
 
 .navbar__products-icons {
