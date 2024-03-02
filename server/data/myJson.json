@@ -1,0 +1,10 @@
+{
+    "iphones": {
+        "capacity": "128GB",
+        "color":"black"
+    },
+    "laptops": {
+        "type":"air13",
+        "color":"grey"
+    }
+}
