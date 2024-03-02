@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import style from "./Navigation.module.scss";
 import { FaSearch, FaUser } from "react-icons/fa";
 import { FiShoppingCart } from "react-icons/fi";
-
+import { MdMenu } from "react-icons/md";
+import { FaTimes } from "react-icons/fa";
 interface CustomIconProps {
   className: string;
   children?: React.ReactNode;
@@ -15,6 +16,11 @@ const CustomIcon: React.FC<CustomIconProps> = ({ className, children }) => (
 
 export const Navitation = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [toggleMenu, setToggleMenu] = useState(false);
+
+  const handleMenuToggle = () => {
+    setToggleMenu(!toggleMenu);
+  };
 
   return (
     <header className={style["navbar"]}>
@@ -34,10 +40,10 @@ export const Navitation = () => {
           <ul className={style["navbar__products-ul"]}>
             {[
               "Mac",
-              "Ipad",
-              "Iphones",
+              "iPad",
+              "iPhone",
               "Watch",
-              "Airpod",
+              "AirPods",
               "Аксесоари",
               "Промо",
             ].map((item, index) => (
@@ -72,6 +78,24 @@ export const Navitation = () => {
         <CustomIcon className={style["icon"]}>
           <FaUser />
         </CustomIcon>
+      </div>
+      <div className={`${style['app__navbar-smallscreen']} ${toggleMenu ? style['slide-in'] : ''}`}>
+  <button className={style['menu-button']} onClick={handleMenuToggle}>
+    {toggleMenu ? <FaTimes size={30} /> : <MdMenu size={25} />}
+  </button>
+  {toggleMenu && (
+    <div className={`${style['app__navbar-smallscreen_overlay']} ${toggleMenu ? style['slide-in'] : ''}`} onClick={handleMenuToggle}>
+      <ul className={style['app__navbar-smallscreen_links']}>
+              <li><Link to="/" onClick={() => setToggleMenu(false)}>Home</Link></li>
+              <li><Link to="" onClick={() => setToggleMenu(false)}>Mac</Link></li>
+              <li><Link to="" onClick={() => setToggleMenu(false)}>iPhone</Link></li>
+              <li><Link to="" onClick={() => setToggleMenu(false)}>Watch</Link></li>
+              <li><Link to="" onClick={() => setToggleMenu(false)}>AirPods</Link></li>
+              <li><Link to="" onClick={() => setToggleMenu(false)}>Аксесоари</Link></li>
+              <li><Link to="" onClick={() => setToggleMenu(false)}>Промо</Link></li>
+            </ul>
+          </div>
+        )}
       </div>
     </header>
   );
