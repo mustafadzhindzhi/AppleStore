@@ -79,12 +79,12 @@ export const Navitation = () => {
           <FaUser />
         </CustomIcon>
       </div>
-      <div className={`${style['app__navbar-smallscreen']} ${toggleMenu ? style['slide-in'] : ''}`}>
-  <button className={style['menu-button']} onClick={handleMenuToggle}>
-    {toggleMenu ? <FaTimes size={30} /> : <MdMenu size={25} />}
-  </button>
+      <div className={`${style['app__navbar-smallscreen']} ${toggleMenu ? style['slide-in'] : style['slide-out']}`}>
+      <button className={style['menu-button']} onClick={handleMenuToggle}>
+        {toggleMenu ? <FaTimes size={25} /> : <MdMenu size={25} />}
+      </button>
   {toggleMenu && (
-    <div className={`${style['app__navbar-smallscreen_overlay']} ${toggleMenu ? style['slide-in'] : ''}`} onClick={handleMenuToggle}>
+    <div className={`${style['app__navbar-smallscreen_overlay']} ${toggleMenu ? style['slide-in'] : style['slide-out']}`}>
       <ul className={style['app__navbar-smallscreen_links']}>
               <li><Link to="/" onClick={() => setToggleMenu(false)}>Home</Link></li>
               <li><Link to="" onClick={() => setToggleMenu(false)}>Mac</Link></li>
