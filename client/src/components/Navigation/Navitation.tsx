@@ -86,13 +86,15 @@ export const Navitation = () => {
   {toggleMenu && (
     <div className={`${style['app__navbar-smallscreen_overlay']} ${toggleMenu ? style['slide-in'] : style['slide-out']}`}>
       <ul className={style['app__navbar-smallscreen_links']}>
-              <li><Link to="/" onClick={() => setToggleMenu(false)}>Home</Link></li>
-              <li><Link to="" onClick={() => setToggleMenu(false)}>Mac</Link></li>
-              <li><Link to="" onClick={() => setToggleMenu(false)}>iPhone</Link></li>
-              <li><Link to="" onClick={() => setToggleMenu(false)}>Watch</Link></li>
-              <li><Link to="" onClick={() => setToggleMenu(false)}>AirPods</Link></li>
-              <li><Link to="" onClick={() => setToggleMenu(false)}>Аксесоари</Link></li>
-              <li><Link to="" onClick={() => setToggleMenu(false)}>Промо</Link></li>
+              <li><Link to="/" onClick={() => setToggleMenu(false)}><a>Home</a></Link></li>
+              <li><Link to="" onClick={() => setToggleMenu(false)}><a>Mac</a></Link></li>
+              <li><Link to="" onClick={() => setToggleMenu(false)}><a>iPhone</a></Link></li>
+              <li><Link to="" onClick={() => setToggleMenu(false)}><a>Watch</a></Link></li>
+              <li><Link to="" onClick={() => setToggleMenu(false)}><a>AirPods</a></Link></li>
+              <li><Link to="" onClick={() => setToggleMenu(false)}><a>Аксесоари</a></Link></li>
+              <li><Link to="" onClick={() => setToggleMenu(false)}><a>Промо</a> <span className={style["promo-sign"]}>
+                    <span className={style["percentage"]}>%</span>
+                  </span></Link></li>
             </ul>
           </div>
         )}

@@ -167,16 +167,11 @@
 }
 
 .app__navbar-smallscreen_links li {
-  margin: 0.8rem;
   cursor: pointer;
   color: #DCCA87;
   font-size: 2.5rem;
   text-align: center;
   font-family: 'Cormorant Upright', serif;
-
-  .app__navbar-smallscreen_links ul li a{
-    text-decoration: none;
-  }
 }
 
 .app__navbar-smallscreen_links li:hover {
@@ -211,9 +206,32 @@
     flex-direction: column;
   }
 
+  .app__navbar-smallscreen_links li{
+    width: 100%;
+    height: 3.5rem;
+    background-color: black;
+    border: 1px solid white;
+    margin-bottom: 0.7rem;
+  }
+
+  .promo-sign {
+    position: relative;
+    display: inline-block;
+    background-color: red;
+    border-radius: 50%;
+    padding: 3px;
+    margin-left: 5px;
+  }
+
+  .app__navbar-smallscreen_links li:hover{
+    background-color: #545454;
+    transition: 0.3s ease;
+  }
+
   .app__navbar-smallscreen_links li a {
     font-size: 19px;
     color: white;
+    text-decoration: none;
   }
 
   .app__navbar-smallscreen_links {
