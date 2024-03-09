@@ -124,13 +124,16 @@
   z-index: 5;
   margin-top: 4rem;
   opacity: 1;
+  animation-duration: 0.5s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
 
   &.slide-in {
-    animation: slideIn 0.5s ease forwards;
+    animation-name: slideIn;
   }
 
   &.slide-out {
-    animation: slideOut 0.5s ease forwards;
+    animation-name: slideOut;
   }
 
   @keyframes slideIn {
@@ -155,6 +158,7 @@
     }
   }
 }
+
 
 .flex__center {
   display: flex;
