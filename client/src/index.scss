@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+div {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+body {
+    font-family: random($limit: 1);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #282828;
+    background-color: #fff;
+}
+
+html {
+    font-size: 16px;
+}
