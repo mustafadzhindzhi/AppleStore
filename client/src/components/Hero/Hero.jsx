@@ -1,34 +1,49 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 import style from "./Hero.module.scss";
+import image1 from "../../assets/Mac.png";
+import image2 from "../../assets/Mac (1).png";
+import image3 from "../../assets/Mac (2).png";
 
 const images = [
-  "https://i.pinimg.com/originals/b6/b1/dd/b6b1dd61c339d36c460c698101284cb7.jpg",
-  "https://appletoolbox.com/wp-content/uploads/2022/03/Set-Wallpaper-on-Apple-Watch-Customize-Watch-Face-scaled.jpg",
-  "https://nofilmschool.com/media-library/iphone-15-pro-max.jpg?id=38612388&width=1245&height=700&quality=90&coordinates=0%2C0%2C0%2C0",
+  { id: 1, src: image1, alt: "Description of Image 1", path: "/page1" },
+  { id: 2, src: image2, alt: "Description of Image 2", path: "/page2" },
+  { id: 3, src: image3, alt: "Description of Image 3", path: "/page3" },
 ];
 
 const Hero = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((current) => (current + 1) % images.length);
-    }, 5000); 
+      setCurrentImageIndex(prevIndex => (prevIndex + 1) % images.length);
+    }, 7000); 
     return () => clearInterval(interval);
   }, []);
 
-  const changeImage = (index) => {
-    setCurrentImageIndex(index);
+  const changeImage = (id) => {
+    const newIndex = images.findIndex(image => image.id === id);
+    setCurrentImageIndex(newIndex);
+  };
+
+  const handleImageClick = () => {
+    const path = images[currentImageIndex].path;
+    navigate(path);
   };
 
   return (
     <div className={style.multislider}>
-      <div className={style["slider-layer"]} id="slider-layer">
-        <img src={images[currentImageIndex]} alt={`Slider ${currentImageIndex + 1}`} />
+      <div className={style["slider-layer"]} onClick={handleImageClick}>
+        <img src={images[currentImageIndex].src} alt={images[currentImageIndex].alt} />
       </div>
       <div className={style["multislider-inner"]}>
-        {images.map((_, index) => (
-          <button key={index} onClick={() => changeImage(index)} className={`${style.navButton} ${currentImageIndex === index ? style.active : ""}`}>
+        {images.map((image, index) => (
+          <button
+            key={image.id}
+            onClick={() => changeImage(image.id)}
+            className={`${style.navButton} ${index === currentImageIndex ? style.active : ""}`}
+          >
             {index + 1}
           </button>
         ))}

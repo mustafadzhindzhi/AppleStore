@@ -10,6 +10,7 @@
   width: 100%;
   right: 0;
   left: 0;
+  top: 0;
 }
 
 .header-logo {
@@ -40,7 +41,7 @@
     padding: 0;
     margin: 0;
     display: flex;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     gap: 16px;
 
     li {
@@ -66,14 +67,14 @@
 
   .percentage {
     color: black;
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 }
 
 .navbar__products-icons {
   display: flex;
   padding-right: 2rem;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   height: 50px;
 
   a {
