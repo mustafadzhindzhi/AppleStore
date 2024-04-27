@@ -13,18 +13,27 @@ const images = [
 
 const Hero = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [opacity, setOpacity] = useState(1); // Manage opacity through state
   const navigate = useNavigate();
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex(prevIndex => (prevIndex + 1) % images.length);
-    }, 7000); 
+      setOpacity(0); 
+      setTimeout(() => {
+        setCurrentImageIndex(prevIndex => (prevIndex + 1) % images.length);
+        setOpacity(1);
+      }, 500); 
+    }, 7000);
     return () => clearInterval(interval);
   }, []);
 
   const changeImage = (id) => {
-    const newIndex = images.findIndex(image => image.id === id);
-    setCurrentImageIndex(newIndex);
+    setOpacity(0);
+    setTimeout(() => {
+      const newIndex = images.findIndex(image => image.id === id);
+      setCurrentImageIndex(newIndex);
+      setOpacity(1);
+    }, 500);
   };
 
   const handleImageClick = () => {
@@ -35,7 +44,12 @@ const Hero = () => {
   return (
     <div className={style.multislider}>
       <div className={style["slider-layer"]} onClick={handleImageClick}>
-        <img src={images[currentImageIndex].src} alt={images[currentImageIndex].alt} />
+        <img
+          src={images[currentImageIndex].src}
+          alt={images[currentImageIndex].alt}
+          style={{ opacity }}
+          className={style.fade}
+        />
       </div>
       <div className={style["multislider-inner"]}>
         {images.map((image, index) => (

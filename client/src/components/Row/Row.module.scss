@@ -21,6 +21,16 @@
             max-width: 100%;
             height: auto;
         }
+        .airpods-content h2 {
+            display: flex;
+            align-items: center;
+            justify-content: center; 
+
+            .appleIcon {
+                margin-right: 10px;
+                margin-top: -50px; // Specific to AirPods' Apple Icon
+            }
+        }
 
         .infor-content,
         .laptop-content,
@@ -36,6 +46,7 @@
 
             p {
                 margin-bottom: 20px;
+                font-size: 20px;
             }
 
             button {
@@ -92,7 +103,7 @@
 
         img {
             width: 50%;
-            height: 60%;
+            height: 80%;
         }
 
         h2 {
@@ -116,8 +127,10 @@
             flex: 1;
             order: 1;
         }
+    }
 
-
+    .appleIcon {
+        font-size: 25px; // General styling for all Apple Icons
     }
 
     @media (max-width: 992px) {
@@ -156,7 +169,7 @@
         .airpods,
         .iphone {
             h2 {
-                font-size: 20px !important;
+                font-size: 20px;
             }
 
             p {
