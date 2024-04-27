@@ -1,0 +1,171 @@
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 50px;
+    width: 98%;
+    margin: 0 auto;
+
+    >div {
+        width: 50%;
+        padding: 25px;
+        box-sizing: border-box;
+        color: white;
+        border: 2px solid white;
+        border-top: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .infor-content,
+        .laptop-content,
+        .airpods-content,
+        .iphone-content {
+            text-align: center;
+
+            h2 {
+                margin: 10px 0;
+                font-size: 38px;
+                margin-bottom: 20px;
+            }
+
+            p {
+                margin-bottom: 20px;
+            }
+
+            button {
+                padding: 10px 20px;
+                font-size: 18px;
+                background-color: transparent;
+                border: 1px solid grey;
+                color: white;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+
+                &:hover {
+                    background-color: grey;
+                }
+            }
+        }
+    }
+
+    .laptop {
+        flex-direction: column;
+    }
+
+    .airpods,
+    .iphone {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .airpods-content,
+        .iphone-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            order: 2;
+        }
+
+        .airpods-image,
+        .iphone-image {
+            flex: 1;
+            order: 1;
+        }
+    }
+
+    .infor {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 50%;
+            height: 60%;
+        }
+
+        h2 {
+            margin: 10px 0;
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            width: 50%;
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+
+        .infor-content {
+            flex: 1;
+            order: 2;
+        }
+
+        img {
+            flex: 1;
+            order: 1;
+        }
+
+
+    }
+
+    @media (max-width: 992px) {
+        >div {
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+
+        .airpods,
+        .iphone,
+        .infor {
+            flex-direction: column;
+
+            .airpods-content,
+            .iphone-content,
+            .infor-content {
+                order: 2;
+            }
+
+            .airpods-image,
+            .iphone-image,
+            img {
+                order: 1;
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        border: none;
+
+        .infor,
+        .laptop,
+        .airpods,
+        .iphone {
+            h2 {
+                font-size: 20px !important;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            button {
+                font-size: 16px;
+            }
+        }
+    }
+}

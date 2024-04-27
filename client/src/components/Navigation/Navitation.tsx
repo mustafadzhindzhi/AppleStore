@@ -33,7 +33,7 @@ export const Navitation = () => {
       </Link>
       <div className={style["vertical-line"]}></div>
       <div className={style["header-logo-right"]}>
-        <img src="src/assets/mac.png" alt="" />
+        <img src="src/assets/logo2.png" alt="" />
       </div>
       <nav className={style["navbar__nav"]}>
         <div className={style["navbar__products"]}>
