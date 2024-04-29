@@ -13,7 +13,7 @@ const images = [
 
 const Hero = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [opacity, setOpacity] = useState(1); // Manage opacity through state
+  const [opacity, setOpacity] = useState(1); 
   const navigate = useNavigate();
 
   useEffect(() => {

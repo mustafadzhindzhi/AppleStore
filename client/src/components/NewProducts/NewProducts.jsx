@@ -1,6 +1,9 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css"; 
 import "swiper/css/navigation"; 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
 
 import Navigation from "/node_modules/swiper/modules/navigation.mjs";
 
@@ -8,6 +11,13 @@ import style from "./NewProducts.module.scss";
 import Item from "../Item/Item.jsx";
 
 const NewProducts = () => {
+    useEffect(() => {
+        AOS.init({
+          duration: 800,  
+          once: true,    
+        });
+      }, []);
+
     return (
       <div className={style.itemList}>
         <h2>New Products</h2>
@@ -33,7 +43,7 @@ const NewProducts = () => {
           }}
         >
           {Array.from({ length: 6 }).map((_, index) => (
-            <SwiperSlide key={index}>
+          <SwiperSlide key={index} data-aos="fade-right" data-aos-delay={`${index * 100}`}>
               <Item />
             </SwiperSlide>
           ))}
