@@ -1,0 +1,53 @@
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+
+.itemList {
+    width: 90%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 120px;
+
+    h2 {
+        text-align: center;
+        color: white;
+        font-size: 33px;
+    }
+
+    .swiperContainer {
+        width: 100%;
+        position: relative;
+
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+        }
+
+        .swiper-button-next, .swiper-button-prev {
+            background: none;
+            opacity: 1;
+            transition: opacity 0.3s;
+            z-index: 10; 
+
+            &:after {
+                font-size: 30px; 
+                color: white; 
+            }
+        }
+
+        .swiper-button-next {
+            right: -30px;
+        }
+
+        .swiper-button-prev {
+            left: -30px; 
+        }
+
+        .swiper-button-next:hover, .swiper-button-prev:hover {
+            opacity: 0.7;
+        }
+    }
+}
