@@ -101,11 +101,7 @@
         justify-content: center;
         align-items: center;
 
-        img {
-            width: 50%;
-            height: 80%;
-        }
-
+    
         h2 {
             margin: 10px 0;
             font-size: 38px;
@@ -130,7 +126,7 @@
     }
 
     .appleIcon {
-        font-size: 25px; // General styling for all Apple Icons
+        font-size: 25px;
     }
 
     @media (max-width: 992px) {
