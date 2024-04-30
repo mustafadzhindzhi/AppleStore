@@ -1,28 +1,28 @@
-* {
-    margin: 0;
-    padding: 0;
-    outline: 0;
-}
-
-*, *::before, *::after {
-    box-sizing: inherit;
-}
-
-div {
-    display: block;
-    unicode-bidi: isolate;
+*,
+*::before,
+*::after {
+  box-sizing: border-box; 
 }
 
 body {
-    font-family: random($limit: 1);
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #282828;
-    background-color: #fff;
-    background-color: black;
+  font-family: sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #282828;
+  background-color: black;
 }
 
-html {
-    font-size: 16px;
+.swiper-button-next, .swiper-button-prev {
+  background: none;
+  opacity: 1;
+  transition: opacity 0.3s;
+  z-index: 10;
+  &:after {
+    font-size: 28px;
+    color: white;
+  }
+  &:hover {
+    opacity: 0.7;
+  }
 }
