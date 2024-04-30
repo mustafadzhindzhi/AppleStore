@@ -1,8 +1,8 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css"; 
-import "swiper/css/navigation"; 
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import "swiper/css";
+import "swiper/css/navigation";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { useEffect } from "react";
 
 import Navigation from "/node_modules/swiper/modules/navigation.mjs";
@@ -13,8 +13,8 @@ import Item from "../Item/Item.jsx";
 const PromoProducts = () => {
   useEffect(() => {
     AOS.init({
-      duration: 800,  
-      once: true,    
+      duration: 800,
+      once: false,
     });
   }, []);
 
@@ -28,23 +28,24 @@ const PromoProducts = () => {
         spaceBetween={30}
         className={style.swiperContainer}
         breakpoints={{
-          320: {
-            slidesPerView: 1,
-          },
-          768: {
-            slidesPerView: 2,
-          },
-          1024: {
-            slidesPerView: 3,
-          },
-          1440: {
-            slidesPerView: 4,
-          },
+          320: { slidesPerView: 1 },
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+          1440: { slidesPerView: 4 },
+        }}
+        onSlideChange={() => AOS.refresh()}
+        onInit={() => {
+          AOS.refresh();
+        }}
+        onUpdate={() => {
+          AOS.refresh();
         }}
       >
         {Array.from({ length: 6 }).map((_, index) => (
-          <SwiperSlide key={index} data-aos="fade-right" data-aos-delay={`${index * 100}`}>
-          <Item />
+          <SwiperSlide key={index}>
+            <div data-aos="fade-right" data-aos-delay={`${index * 100}`}>
+              <Item />
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>

@@ -42,9 +42,11 @@ const OurSuggestion = () => {
           }}
         >
           {Array.from({ length: 6 }).map((_, index) => (
-          <SwiperSlide key={index} data-aos="fade-right" data-aos-delay={`${index * 100}`}>
-          <Item />
-            </SwiperSlide>
+          <SwiperSlide key={index}>
+          <div data-aos="fade-right" data-aos-delay={`${index * 100}`}>
+            <Item />
+          </div>
+        </SwiperSlide>
           ))}
         </Swiper>
       </div>
