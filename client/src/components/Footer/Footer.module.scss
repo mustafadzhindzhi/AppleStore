@@ -1,8 +1,147 @@
-.footer{
-    display: flex;
-    height: 70vh;
-    h2{
-        font-size: 40px;
-        color: white;
+@import '../../common.module.scss';
+
+.footer {
+  padding: $padding-base;
+  text-align: center;
+  color: $text-color;
+  background-color: black;
+  padding-top: 50px; 
+  overflow: hidden; 
+}
+
+.footerContent {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  flex-wrap: nowrap; 
+  transition: transform $transition-duration ease-out; 
+
+  @media (min-width: $breakpoint-tablet) {
+    flex-direction: row;
+    justify-content: space-around; 
+    transform: none; 
+    overflow: visible; 
+  }
+}
+
+.footerItem {
+  flex: 0 0 100%; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $item-padding;
+  text-align: center;
+
+  @media (min-width: $breakpoint-tablet) {
+    flex: 0 0 auto; 
+  }
+
+  svg {
+    margin-bottom: 5px;
+    font-size: 24px;
+  }
+
+  p {
+    font-size: $item-font-size;
+    color: white;
+  }
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+
+  @media (min-width: $breakpoint-tablet) {
+    display: none; 
+  }
+}
+
+.dot, .dotActive {
+  height: 10px;
+  width: 10px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color $transition-duration;
+
+  &.dotActive {
+    background-color: $new-price-color;
+  }
+}
+
+.extensions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+
+  @media (max-width: $breakpoint-tablet) {
+    flex-direction: column;
+  }
+}
+
+.section {
+  flex: 1 1 20%;
+  padding: $item-padding;
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.title {
+  font-size: $heading-font-size;
+  margin-bottom: $space-between;
+}
+
+.item {
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: $item-transition;
+  color: white; 
+}
+
+.socialLinks {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.socialLink {
+  margin: 0 10px;
+  color: inherit;
+  font-size: 24px;
+}
+
+.paymentMethods {
+  display: flex;
+  justify-content: flex-end; 
+  align-items: center;
+  flex-grow: 1;
+
+  svg {
+    font-size: 36px;
+    margin: 0 15px;
+    color: white;
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+      color: #666;
     }
+  }
+}
+
+.footerBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  text-align: center;
+  font-size: $item-font-size;
+  color: white;
+  padding-left: $padding-base;
 }
