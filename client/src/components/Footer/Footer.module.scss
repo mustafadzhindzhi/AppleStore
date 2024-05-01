@@ -145,3 +145,23 @@
   color: white;
   padding-left: $padding-base;
 }
+
+@media (max-width: $breakpoint-mobile) {
+    .title {
+        font-size: medium;
+        margin-bottom: 15px;
+    }
+    .item {
+        font-size: small;
+    }
+    .extensions {
+      margin-top: $space-between;
+    }
+    .socialLink {
+      margin: 0 5px;
+      font-size: $heading-font-size;
+    }
+    .footerBottom {
+      flex-direction: column-reverse;
+    }
+}

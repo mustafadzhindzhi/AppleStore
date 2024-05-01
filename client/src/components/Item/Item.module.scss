@@ -65,3 +65,11 @@
         }
     }
 }
+
+@media (max-width: $breakpoint-tablet) {
+  .item {
+      h2{
+          font-size: $font-size-medium !important;
+      }
+  }
+}

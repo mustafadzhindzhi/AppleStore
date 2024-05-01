@@ -7,7 +7,7 @@
     width: 98%;
     margin: 0 auto;
 
-    > div {
+    >div {
         width: 50%;
         padding: $padding-base;
         box-sizing: border-box;
@@ -28,7 +28,10 @@
             text-align: center;
         }
 
-        .airpods-content h2, .iphone-content h2, .infor-content h2, .laptop-content h2 {
+        .airpods-content h2,
+        .iphone-content h2,
+        .infor-content h2,
+        .laptop-content h2 {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -62,12 +65,17 @@
         }
     }
 
-    .laptop, .airpods, .iphone, .infor {
+    .laptop,
+    .airpods,
+    .iphone,
+    .infor {
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
 
-        .airpods-content, .iphone-content, .infor-content {
+        .airpods-content,
+        .iphone-content,
+        .infor-content {
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -75,7 +83,9 @@
             justify-content: center;
         }
 
-        .airpods-image, .iphone-image, img {
+        .airpods-image,
+        .iphone-image,
+        img {
             flex: 1;
         }
     }
@@ -84,12 +94,14 @@
         flex-direction: column;
     }
 
-    .airpods, .iphone {
+    .airpods,
+    .iphone {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
 
-        .airpods-content, .iphone-content {
+        .airpods-content,
+        .iphone-content {
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -98,7 +110,8 @@
             order: 2;
         }
 
-        .airpods-image, .iphone-image {
+        .airpods-image,
+        .iphone-image {
             flex: 1;
             order: 1;
         }
@@ -132,36 +145,51 @@
     .appleIcon {
         font-size: 22px;
     }
+}
 
-    @media (max-width: $breakpoint-desktop) {
-        > div {
+@media (max-width: $breakpoint-desktop) {
+    >div {
+        width: 100%;
+    }
+}
+
+@media (max-width: $breakpoint-tablet) {
+    .row {
+        padding-top: 0px;
+        flex-direction: column;
+        >div {
             width: 100%;
         }
-    }
 
-    @media (max-width: $breakpoint-tablet) {
-        .airpods, .iphone, .infor {
+        .airpods,
+        .iphone,
+        .infor {
             flex-direction: column;
 
-            .airpods-content, .iphone-content, .infor-content {
+            .airpods-content,
+            .iphone-content,
+            .infor-content {
                 order: 2;
             }
 
-            .airpods-image, .iphone-image, img {
+            .airpods-image,
+            .iphone-image,
+            img {
                 order: 1;
             }
         }
     }
+}
 
-    @media (max-width: $breakpoint-mobile) {
-        border: none;
-
-        h2 {
-            font-size: $font-size-xsmall;
-        }
-
-        p, button {
-            font-size: $font-size-small;
-        }
+@media (max-width: $breakpoint-mobile) {
+    .airpods-content h2,
+    .iphone-content h2,
+    .infor-content h2,
+    .laptop-content h2  {
+        font-size: $font-size-small !important;
     }
+    p,
+    button {
+        font-size: $font-size-xsmall !important;
+    }   
 }
