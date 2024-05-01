@@ -1,51 +1,67 @@
+@import '../../common.module.scss';
+
 .item {
     width: 90%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    gap: 5px;
     color: white;
-    
+
     img {
       width: 100%;
-      height: 200px;
+      height: $image-height;
       object-fit: cover;
     }
-  
+
     h2 {
       margin: 5px 0;
-      color: white; 
-      font-size: 25px; 
-      line-height: 1; 
-      word-wrap: break-word; 
-      text-align: center; 
-      width: 90%; 
-      overflow: hidden; 
-      text-overflow: ellipsis; 
-      white-space: nowrap; 
+      color: inherit; 
+      font-size: $heading-font-size !important;
+      line-height: 1;
+      word-wrap: break-word;
+      text-align: center;
+      width: 90%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
-  
+
     p {
       margin: 5px 0;
-      color: white;
-      font-size: 20px
+      font-size: $font-size-medium;
     }
-  
+
+    .prices {
+      display: flex;
+      align-items: baseline;
+      gap: 5px;
+
+      .oldPrice {
+          text-decoration: line-through;
+          color: $old-price-color;
+      }
+
+      .newPrice {
+          color: $new-price-color;
+          font-weight: bold;
+      }
+    }
+
     button {
-        padding: 10px 20px;
-        font-size: 14px;
+        padding: $item-padding;
+        font-size: $item-font-size;
         background-color: transparent;
         border: 1px solid grey;
-        color: white;
+        color: inherit; 
         border-radius: 5px;
         cursor: pointer;
-        transition: background-color 0.3s ease;
+        transition: $item-transition;
         margin-bottom: 30px;
 
         &:hover {
             background-color: grey;
         }
     }
-  }
-  
+}

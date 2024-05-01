@@ -6,7 +6,6 @@ import "aos/dist/aos.css";
 import { useEffect } from "react";
 
 import Navigation from "/node_modules/swiper/modules/navigation.mjs";
-
 import style from "./PromoProducts.module.scss";
 import Item from "../Item/Item.jsx";
 
@@ -19,6 +18,7 @@ const PromoProducts = () => {
   }, []);
 
   return (
+    <div className={style.promo}>
     <div className={style.itemList}>
       <h2>Promo Products</h2>
       <Swiper
@@ -44,11 +44,12 @@ const PromoProducts = () => {
         {Array.from({ length: 6 }).map((_, index) => (
           <SwiperSlide key={index}>
             <div data-aos="fade-right" data-aos-delay={`${index * 100}`}>
-              <Item />
+              <Item showPromo={true} />
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
+    </div>
     </div>
   );
 };

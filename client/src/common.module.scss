@@ -1,0 +1,44 @@
+// Color variables
+$text-color: white;
+$border-color: white;
+$new-price-color: #E53935;
+$old-price-color: #888;
+$button-bg-hover: grey;
+$button-active-bg: #fff;
+$base-border-color: grey; 
+
+// Spacing and sizing
+$padding-base: 25px;
+$button-padding: 6px 12px;
+$section-padding: 50px 10%;
+$space-between: 40px;
+$item-padding: 10px 20px;
+$slider-margin-bottom: 50px;
+$new-section-margin: 20px auto;
+$swiper-slide-height: 300px; 
+
+// Font sizing
+$font-size-large: 30px;
+$font-size-medium: 18px;
+$font-size-small: 16px;
+$font-size-xsmall: 20px;
+$item-font-size: 13px;
+$button-font-size: 13px;
+$heading-font-size: 20px;
+$new-heading-font-size: 30px; 
+
+// Breakpoints
+$max-image-width: 500px;
+$image-height: 200px;
+$min-section-height: 500px;
+$breakpoint-desktop: 992px;
+$breakpoint-tablet: 768px;
+$breakpoint-mobile: 480px;
+
+// Transition and Animation
+$transition-duration: 0.5s;
+$transition-timing: ease-in-out;
+$item-transition: background-color 0.3s ease;
+$button-opacity: 0.7;
+$button-active-opacity: 1;
+$button-transition: background-color 0.3s, opacity 0.3s;

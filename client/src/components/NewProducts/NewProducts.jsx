@@ -19,37 +19,39 @@ const NewProducts = () => {
   }, []);
 
   return (
-    <div className={style.itemList}>
-      <h2>New Products</h2>
-      <Swiper
-        modules={[Navigation]}
-        navigation={true}
-        slidesPerView={4}
-        spaceBetween={30}
-        className={style.swiperContainer}
-        breakpoints={{
-          320: {
-            slidesPerView: 1,
-          },
-          768: {
-            slidesPerView: 2,
-          },
-          1024: {
-            slidesPerView: 3,
-          },
-          1440: {
-            slidesPerView: 4,
-          },
-        }}
-      >
-        {Array.from({ length: 6 }).map((_, index) => (
-          <SwiperSlide key={index}>
-            <div data-aos="fade-right" data-aos-delay={`${index * 100}`}>
-              <Item />
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+    <div className={style.new}>
+      <div className={style.itemList}>
+        <h2>New Products</h2>
+        <Swiper
+          modules={[Navigation]}
+          navigation={true}
+          slidesPerView={4}
+          spaceBetween={30}
+          className={style.swiperContainer}
+          breakpoints={{
+            320: {
+              slidesPerView: 1,
+            },
+            768: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 3,
+            },
+            1440: {
+              slidesPerView: 4,
+            },
+          }}
+        >
+          {Array.from({ length: 6 }).map((_, index) => (
+            <SwiperSlide key={index}>
+              <div data-aos="fade-right" data-aos-delay={`${index * 100}`}>
+                <Item />
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </div>
   );
 };
