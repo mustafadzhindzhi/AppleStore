@@ -148,7 +148,7 @@
 }
 
 @media (max-width: $breakpoint-desktop) {
-    >div {
+    .row > div {
         width: 100%;
     }
 }
@@ -157,7 +157,8 @@
     .row {
         padding-top: 0px;
         flex-direction: column;
-        >div {
+
+        > div {
             width: 100%;
         }
 
@@ -182,14 +183,15 @@
 }
 
 @media (max-width: $breakpoint-mobile) {
-    .airpods-content h2,
-    .iphone-content h2,
-    .infor-content h2,
-    .laptop-content h2  {
+    .row .airpods-content h2,
+    .row .iphone-content h2,
+    .row .infor-content h2,
+    .row .laptop-content h2  {
         font-size: $font-size-small !important;
     }
-    p,
-    button {
+
+    .row p,
+    .row button {
         font-size: $font-size-xsmall !important;
     }   
 }

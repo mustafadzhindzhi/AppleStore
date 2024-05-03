@@ -76,25 +76,64 @@ export const Navitation = () => {
           <FiShoppingCart />
         </CustomIcon>
         <CustomIcon className={style["icon"]}>
-          <FaUser />
+          <Link to="/signUp">
+            <FaUser />
+          </Link>
         </CustomIcon>
       </div>
-      <div className={`${style['app__navbar-smallscreen']} ${toggleMenu ? style['slide-in'] : style['slide-out']}`}>
-      <button className={style['menu-button']} onClick={handleMenuToggle}>
-        {toggleMenu ? <FaTimes size={25} /> : <MdMenu size={25} />}
-      </button>
-  {toggleMenu && (
-    <div className={`${style['app__navbar-smallscreen_overlay']} ${toggleMenu ? style['slide-in'] : style['slide-out']}`}>
-      <ul className={style['app__navbar-smallscreen_links']}>
-              <li><Link to="/" onClick={() => setToggleMenu(false)}><a>Home</a></Link></li>
-              <li><Link to="" onClick={() => setToggleMenu(false)}><a>Mac</a></Link></li>
-              <li><Link to="" onClick={() => setToggleMenu(false)}><a>iPhone</a></Link></li>
-              <li><Link to="" onClick={() => setToggleMenu(false)}><a>Watch</a></Link></li>
-              <li><Link to="" onClick={() => setToggleMenu(false)}><a>AirPods</a></Link></li>
-              <li><Link to="" onClick={() => setToggleMenu(false)}><a>Аксесоари</a></Link></li>
-              <li><Link to="" onClick={() => setToggleMenu(false)}><a>Промо</a> <span className={style["promo-sign"]}>
+      <div
+        className={`${style["app__navbar-smallscreen"]} ${
+          toggleMenu ? style["slide-in"] : style["slide-out"]
+        }`}
+      >
+        <button className={style["menu-button"]} onClick={handleMenuToggle}>
+          {toggleMenu ? <FaTimes size={25} /> : <MdMenu size={25} />}
+        </button>
+        {toggleMenu && (
+          <div
+            className={`${style["app__navbar-smallscreen_overlay"]} ${
+              toggleMenu ? style["slide-in"] : style["slide-out"]
+            }`}
+          >
+            <ul className={style["app__navbar-smallscreen_links"]}>
+              <li>
+                <Link to="/" onClick={() => setToggleMenu(false)}>
+                  <a>Home</a>
+                </Link>
+              </li>
+              <li>
+                <Link to="" onClick={() => setToggleMenu(false)}>
+                  <a>Mac</a>
+                </Link>
+              </li>
+              <li>
+                <Link to="" onClick={() => setToggleMenu(false)}>
+                  <a>iPhone</a>
+                </Link>
+              </li>
+              <li>
+                <Link to="" onClick={() => setToggleMenu(false)}>
+                  <a>Watch</a>
+                </Link>
+              </li>
+              <li>
+                <Link to="" onClick={() => setToggleMenu(false)}>
+                  <a>AirPods</a>
+                </Link>
+              </li>
+              <li>
+                <Link to="" onClick={() => setToggleMenu(false)}>
+                  <a>Аксесоари</a>
+                </Link>
+              </li>
+              <li>
+                <Link to="" onClick={() => setToggleMenu(false)}>
+                  <a>Промо</a>{" "}
+                  <span className={style["promo-sign"]}>
                     <span className={style["percentage"]}>%</span>
-                  </span></Link></li>
+                  </span>
+                </Link>
+              </li>
             </ul>
           </div>
         )}
