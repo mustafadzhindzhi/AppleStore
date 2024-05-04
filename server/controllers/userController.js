@@ -5,7 +5,7 @@ const sendResponse = (res, data, statusCode = 200) => {
     res.status(statusCode).json(data);
 }
 
-const sendError = (req, message, statusCode = 400) => {
+const sendError = (res, message, statusCode = 400) => {
     res.status(statusCode).json({ success: false, errors: message })
 };
 
@@ -27,11 +27,11 @@ const registerUser = async (req, res) => {
 const loginUser = async (req, res) => {
     try {
         const user = await User.findOne({email: req.body.email});
-        if(!user) {
+        if (!user) {
             return sendError(res, 'User not found', 404);
         }
-        const isMatch = user.password = req.body.password;
-        if(!isMatch) {
+        const isMatch = user.password === req.body.password;  // Correct the assignment (=) to comparison (===)
+        if (!isMatch) {
             return sendError(res, 'Invalid email or password');
         }
 
@@ -39,7 +39,7 @@ const loginUser = async (req, res) => {
         const token = jwt.sign(payload, 'secret-ecom', {expiresIn:'2h'});
         sendResponse(res, {token});
     } catch(err) {
-        sendError(res, "Server error", 500)
+        sendError(res, "Server error", 500);
     }
 };
 

@@ -6,6 +6,7 @@ const userRouter = require('./router/userRouter');
 const productRouter = require('./router/productRouter');
 const upload = require('./utils/multerConfig');
 const authenticateToken = require('./middlewares/authMiddleware');
+const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 3030;
@@ -13,6 +14,7 @@ const PORT = process.env.PORT || 3030;
 // Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 
 // Connect to MongoDB
 connectDb();
