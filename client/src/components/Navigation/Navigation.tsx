@@ -14,7 +14,7 @@ const CustomIcon: React.FC<CustomIconProps> = ({ className, children }) => (
   <span className={className}>{children}</span>
 );
 
-export const Navitation = () => {
+export const Navigation = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [toggleMenu, setToggleMenu] = useState(false);
 
@@ -142,4 +142,4 @@ export const Navitation = () => {
   );
 };
 
-export default Navitation;
+export default Navigation;
