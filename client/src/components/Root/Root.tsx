@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import styles from './Root.module.scss';
-import Navigation from "../Navigation/Navigation.tsx";
+import Navigation from "../Navigation/Navigation.jsx";
 
 export const Root = () => {
     return (

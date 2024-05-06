@@ -41,14 +41,18 @@
     padding: 0;
     margin: 0;
     display: flex;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     gap: 16px;
 
     li {
       margin-right: 15px;
       cursor: pointer;
-      color: white;
       transition: opacity 0.4s ease;
+
+      a{
+        color: white;
+        text-decoration: none;
+      }
 
       &.is-hovered {
         opacity: 0.6;
@@ -74,12 +78,8 @@
 .navbar__products-icons {
   display: flex;
   padding-right: 2rem;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   height: 50px;
-
-  a {
-    text-decoration: none;
-  }
 
   .icon {
     position: relative;
@@ -89,6 +89,10 @@
     flex-shrink: 0;
     display: flex;
     align-items: center;
+
+    a{
+      color: white;
+    }
   }
 
   .icon::before {

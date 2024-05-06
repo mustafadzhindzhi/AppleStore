@@ -1,24 +1,24 @@
-const jwt = require('jsonwebtoken');
-require('dotenv').config();
+const jwt = require("jsonwebtoken");
+const userService = require('../services/userService');
 
-const getTokenFromHeader = (req) => {
-    return req.header('auth-token');
-};
+exports.auth = async (req, res, next) => {
+  const token = req.header("X-Authorization");
 
-const authenticateToken = (req, res, next) => {
-    const token = getTokenFromHeader(req);
-    if (!token) {
-        return res.status(401).json({ success: false, errors: 'No token, authorization denied.' });
-    }
-
+  if (token) {
     try {
-        const decoded = jwt.verify(token, process.env.JWT_SECRET || 'default_secret');
-        req.user = decoded.user;
-        next();
-    } catch (e) {
-        console.error(`Token verification failed: ${e.message}`);  
-        res.status(401).json({ success: false, errors: 'Token is not valid' });
-    }
-};
+      const isBlackListed = await userService.isTokenBlackListed(token);
+      if(isBlackListed) {
+        return res.status(401).json({message: 'Token has been invalidated.'})
+      };
+      
+      const decodedToken = jwt.verify(token, "SOME_SECRET");
+      req.user = decodedToken;
 
-module.exports = authenticateToken;
+      next();
+    } catch (error) {
+      res.status(401).json({ message: "You are not authorized!" });
+    }
+  } else {
+    next();
+  }
+};

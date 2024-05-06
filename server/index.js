@@ -1,37 +1,35 @@
 require('dotenv').config();
 const express = require('express');
-const bodyParser = require('body-parser');
-const connectDb = require('./config/db');
-const userRouter = require('./router/userRouter');
-const productRouter = require('./router/productRouter');
-const upload = require('./utils/multerConfig');
-const authenticateToken = require('./middlewares/authMiddleware');
 const cors = require('cors');
+const mongoose = require('mongoose');
+const routes = require('./routes');
+const {auth} = require('./middlewares/authMiddleware');
+const upload = require('./utils/multerConfig');
 
 const app = express();
 const PORT = process.env.PORT || 3030;
 
-// Middleware
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
+//DB Configuration
+mongoose.connect("mongodb://127.0.0.1:27017/AppleStore")
+.then(() => console.log(`Successfully connected to the DB!`))
+.catch((err) => console.log(`Error while connecting to the DB`, err));
 
-// Connect to MongoDB
-connectDb();
+// Middleware
+app.use(express.urlencoded({extended:false}));
+app.use(express.json());
+app.use(cors());
+app.use(auth);
 
 // Routers
-app.use('/api/users', userRouter);
-app.use('/api/products', productRouter);
-
-// File Upload
-app.post('/api/upload', authenticateToken, upload.single('image'), (req, res) => {
-    res.json({ message: 'File uploaded successfully' });
+app.get('/', (req, res, next) => {
+    res.send('Work!')
 });
 
-// Error handling middleware
-app.use((err, req, res, next) => {
-    console.log(err.stack);
-    res.status(500).send('Something went wrong');
+app.use(routes);
+
+// File Upload
+app.post('/api/upload', auth, upload.single('image'), (req, res) => {
+    res.json({ message: 'File uploaded successfully' });
 });
 
 // Start server

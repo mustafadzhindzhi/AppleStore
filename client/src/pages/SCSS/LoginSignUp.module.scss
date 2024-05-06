@@ -1,11 +1,13 @@
 $color_1: #333;
 $color_2: #fff;
-$background-color_1: #fff;
-$background-color_2: #0DB14B;
-$background-color_3: #0c600a;
-$background-color_4: transparent;
-$background-color_5: #eee;
-$border-color_1: #fff;
+$background_left: #fff;
+$button_color: #0DB14B;
+$background-transition: #0c600a;
+$background_transperant: transparent;
+$background_input: #eee;
+$border_color: #fff;
+$background-color_2: #0DB14B; 
+$background-color_6: #004d40; 
 
 @keyframes move {
 	0%,49.99% {
@@ -25,7 +27,7 @@ $border-color_1: #fff;
 	height: 100vh;
 }
 .container {
-	background-color: $background-color_1;
+	background-color: $background_left;
 	border-radius: 30px;
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
 	position: relative;
@@ -49,7 +51,7 @@ $border-color_1: #fff;
 		margin: 15px 0 10px;
 	}
 	button {
-		background-color: $background-color_2;
+		background-color: $button_color;
 		color: $color_2;
 		font-size: 12px;
 		padding: 10px 45px;
@@ -61,16 +63,16 @@ $border-color_1: #fff;
 		margin-top: 10px;
 		cursor: pointer;
 		&:hover {
-			background-color: $background-color_3;
+			background-color: $background-transition;
 			transition: 0.3s ease-in-out;
 		}
 	}
 	button.hidden {
-		background-color: $background-color_4;
-		border-color: $border-color_1;
+		background-color: $background_transperant;
+		border-color: $border_color;
 	}
 	form {
-		background-color: $background-color_1;
+		background-color: $background_left;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -79,7 +81,7 @@ $border-color_1: #fff;
 		height: 100%;
 	}
 	input {
-		background-color: $background-color_5;
+		background-color: $background_input;
 		border: none;
 		margin: 8px 0;
 		padding: 10px 15px;
@@ -88,7 +90,35 @@ $border-color_1: #fff;
 		width: 100%;
 		outline: none;
 	}
+	input[type="file"] {
+		color: $color_1; 
+		background-color: $background_input; 
+		border: 1px solid $border_color;
+		padding: 10px; 
+		font-size: 13px; 
+		border-radius: 8px;
+		outline: none; 
+		cursor: pointer;
+		text-align: center; 
+		width: 100%; 
+	
+		&::-webkit-file-upload-button {
+			background-color: $button_color; 
+			color: $color_2; 
+			padding: 10px 20px;
+			border-radius: 8px; 
+			border: none;
+			cursor: pointer;
+			transition: background-color 0.3s;
+	
+			&:hover {
+				background-color: $background-transition; 
+			}
+		}
+	}
+	
 }
+
 .form-container {
 	position: absolute;
 	top: 0;
@@ -160,7 +190,7 @@ $border-color_1: #fff;
 	border-radius: 150px 0 0 100px;
 }
 .toggle {
-	background-color: $background-color_2;
+	background-color: $button_color;
 	height: 100%;
 	background: linear-gradient(to right, #0DB19B, #0DB14B);
 	color: $color_2;
@@ -201,4 +231,94 @@ $border-color_1: #fff;
 		height: 100%;
 		object-fit: cover;
 	}
+}
+
+@media (max-width: 768px) {
+	.parent{
+		height: auto;
+		padding-top: 30px;
+		width: 95%;
+		margin: 0 auto;
+	}
+
+    .container {
+        flex-direction: column;
+        height: auto; 
+
+		p{
+			font-size: 12px;
+		}
+		button{
+			margin-bottom: 5px;
+		}
+    }
+
+    .form-container {
+        position: relative;
+        height: auto;
+        transform: none;
+        opacity: 1;
+        z-index: 1;
+    }
+
+    .sign-in, .sign-up {
+        width: 100%;
+        opacity: 1;
+        position: relative;
+        height: auto; 
+        z-index: 1; 
+        transform: none;
+		margin-bottom: 10px;
+    }
+
+    .container.active .sign-in,
+    .container.active .sign-up {
+        transform: none; 
+        z-index: 1;
+    }
+
+    .toggle-container {
+        position: relative;
+        width: 100%;
+        height: 20vh; 
+        border-radius: 0;
+        transform: none;
+        overflow: visible; 
+		transform: translateX(-50%) !important;
+    }
+
+    .toggle {
+        position: relative;
+        transform: none;
+        height: 100%;
+    }
+
+    .toggle-panel {
+        width: 100%;
+        height: 100%; 
+        transform: none;
+        display: flex;
+
+		h1{
+			font-size: 14px;
+			padding: 0;
+			margin: 0;
+		}
+		p{
+			padding: 0;
+			margin: 0;
+		}
+    }
+
+	.toggle-left, .toggle-right {
+        position: absolute;
+        top: 0;
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
 }

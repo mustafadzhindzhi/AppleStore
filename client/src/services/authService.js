@@ -1,28 +1,14 @@
-import { post } from "../utils/apiUtils";
+import { get, post } from '../api/api';  
+export const API_BASE_URL = 'http://localhost:3000';
 
-const register = (userData) => {
-  return post('/api/users/signup', userData);
+export const register = (userData) => {
+    return post(`${API_BASE_URL}/users/register`, userData);
 };
 
-const login = (credentials) => {
-  return post('/api/users/login', credentials).then(data => {
-    if (data.token) {
-      localStorage.setItem('token', data.token); 
-      return data;
-    } else {
-      throw new Error('No token received');
-    }
-  });
+export const login = (userData) => {
+    return post(`${API_BASE_URL}/users/login`, userData);
 };
 
-const validateToken = () => {
-  const token = localStorage.getItem('token');
-  if (!token) {
-    throw new Error('No token found');
-  }
-  return post('/api/users/validateToken', { token }).then(data => {
-    return data.isValid;
-  });
+export const logout = () => {
+    return get(`${API_BASE_URL}/users/logout`);
 };
-
-export { register, login, validateToken };
