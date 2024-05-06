@@ -12,3 +12,7 @@ export const login = (userData) => {
 export const logout = () => {
     return get(`${API_BASE_URL}/users/logout`);
 };
+
+export const checkEmailExistence = (email) => {
+    return get(`${API_BASE_URL}/users/check-email?email=${encodeURIComponent(email)}`);
+};

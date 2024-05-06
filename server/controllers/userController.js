@@ -20,6 +20,16 @@ router.post("/register", async (req, res) => {
   }
 });
 
+router.get("/check-email", async (req, res) => {
+  try {
+    const { email } = req.query;
+    const exists = await userService.checkEmailExists(email);
+    res.json({ exists });  
+  } catch (error) {
+    handleErrorResponse(error, res);
+  }
+});
+
 // Login user
 router.post("/login", async (req, res) => {
   try {

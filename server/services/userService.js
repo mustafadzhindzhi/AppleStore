@@ -2,18 +2,24 @@ const User = require("../models/UserModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const redis = require('redis');
-const redisClient = redis.createClient({legacyMode:true});
+const redisClient = redis.createClient({
+  legacyMode: true,
+  socket: {
+      host: '127.0.0.1',
+      port: 6379
+  }
+});
 redisClient.connect().catch(console.error);
 
 exports.register = async (userData) => {
-  const existingUser = await User.findOne({ email: userData.email });
-  if (existingUser) {
-    throw new Error('Email is already registered!')
-  };
-
   const user = await User.create(userData);
   const result = getResult(user);
   return result;
+};
+
+exports.checkEmailExists = async (email) => {
+  const existingUser = await User.findOne({ email });
+  return existingUser ? true : false;
 };
 
 exports.login = async ({ email, password }) => {

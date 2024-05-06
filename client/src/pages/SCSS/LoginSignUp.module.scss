@@ -24,7 +24,7 @@ $background-color_6: #004d40;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	height: 100vh;
+	height: 150vh;
 }
 .container {
 	background-color: $background_left;
@@ -34,7 +34,7 @@ $background-color_6: #004d40;
 	overflow: hidden;
 	width: 768px;
 	max-width: 100%;
-	min-height: 90%;
+	min-height: 80%;
 	p {
 		font-size: 14px;
 		line-height: 20px;
@@ -231,6 +231,24 @@ $background-color_6: #004d40;
 		height: 100%;
 		object-fit: cover;
 	}
+}
+
+.passwordStrengthMeter {
+    progress {
+        width: 100%;
+        height: 7px;
+    }
+
+    &.passwordStrengthProgress0 { background-color: #ff3e36; }
+    &.passwordStrengthProgress1 { background-color: #ff691f; }
+    &.passwordStrengthProgress2 { background-color: #ffc0cb; }
+    &.passwordStrengthProgress3 { background-color: #0fdd89; }
+    &.passwordStrengthProgress4 { background-color: #12c000; }
+}
+
+.passwordStrengthLabel {
+    font-size: 0.9rem;
+    margin-top: 5px;
 }
 
 @media (max-width: 768px) {
