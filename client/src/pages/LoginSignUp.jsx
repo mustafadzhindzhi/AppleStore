@@ -54,12 +54,14 @@ const SignUp = () => {
         }
         try {
             const response = isSignUpVisible ? await register(formData) : await login(formData);
-            localStorage.setItem('accessToken', response.accessToken);
+            console.log("Response from server:", response);
+            const accessToken = response.data.accessToken; 
+            localStorage.setItem('accessToken', accessToken);
             navigate('/');
         } catch (error) {
             console.error('Error during form submission:', error);
         }
-    };
+    };   
 
     const toggleVisibility = () => {
         setIsSignUpVisible(!isSignUpVisible);
