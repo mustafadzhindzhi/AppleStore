@@ -1,27 +1,28 @@
 const handleResponse = async (response) => {
-    if (!response.ok) {
+  if (!response.ok) {
       const errorBody = await response.text().then(text => {
-        try {
-          return JSON.parse(text);
-        } catch {
-          return text;
-        }
+          try {
+              return JSON.parse(text);
+          } catch {
+              return text;
+          }
       });
-      throw new Error(`${response.status}: ${response.statusText} - ${errorBody.message || errorBody}`);
-    }
-    return response.json();
-  };
+      throw new Error(`${response.status}: ${response.statusText} - ${errorBody.message || 'An error occurred'}`);
+  }
+  return response.json();
+};
   
   const fetchJson = (url, options) => {
-    return fetch(url, {
-      ...options,
-      headers: {
+    const headers = {
         'Content-Type': 'application/json',
         ...options.headers,
-      },
-      body: options.body ? JSON.stringify(options.body) : undefined,
+    };
+    return fetch(url, {
+        ...options,
+        headers,
+        body: options.body ? JSON.stringify(options.body) : undefined,
     }).then(handleResponse);
-  };
+};
   
   export const get = (url, options = {}) => {
     return fetchJson(url, {

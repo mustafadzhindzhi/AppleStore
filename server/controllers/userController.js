@@ -44,7 +44,16 @@ router.post("/login", async (req, res) => {
 // Logout user
 router.get("/logout", auth, async (req, res) => {
   try {
-    const token = req.headers['authorization'].split(' ')[1]; 
+    const authHeader = req.headers['authorization'];
+    if (!authHeader) {
+      return res.status(401).json({ message: 'No authorization token provided' });
+    }
+    
+    const token = authHeader.split(' ')[1];
+    if (!token) {
+      return res.status(401).json({ message: 'Malformed token' });
+    }
+
     await userService.logout(token);
     res.json({ success: true, message: 'Logged out successfully' });
   } catch (error) {

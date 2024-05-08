@@ -10,7 +10,12 @@ export const login = (userData) => {
 };
 
 export const logout = () => {
-    return get(`${API_BASE_URL}/users/logout`);
+    const token = localStorage.getItem('accessToken'); 
+    return get(`${API_BASE_URL}/users/logout`, {
+        headers: {
+            'Authorization': `Bearer ${token}` 
+        }
+    });
 };
 
 export const checkEmailExistence = (email) => {

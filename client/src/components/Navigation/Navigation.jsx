@@ -6,8 +6,10 @@ import { FiShoppingCart } from "react-icons/fi";
 import { MdMenu } from "react-icons/md";
 import { FaTimes } from "react-icons/fa";
 import CustomIcon from "./CustomIcon";
+import { useAuth } from "../../context/authContext.jsx";
 
 const Navigation = () => {
+  const { user } = useAuth();
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [toggleMenu, setToggleMenu] = useState(false);
 
@@ -48,12 +50,13 @@ const Navigation = () => {
               onMouseLeave={() => setHoveredIndex(null)}
               className={hoveredIndex !== null && hoveredIndex === 6 ? style["is-hovered"] : ""}
             >
-              <Link to="/promo" onClick={() => setToggleMenu(false)}>
+              {user && (<Link to="/promo" onClick={() => setToggleMenu(false)}>
                 Promo
                 <span className={style["promo-sign"]}>
                   <span className={style["percentage"]}>%</span>
                 </span>
-              </Link>
+              </Link>)}
+        
             </li>
           </ul>
         </div>

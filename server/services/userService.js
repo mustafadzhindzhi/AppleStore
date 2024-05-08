@@ -53,13 +53,14 @@ exports.isTokenBlackListed = async(token) => {
 }
 
 function getResult(user) {
-  const payload = { _id: user._id, email: user.email };
+  const payload = { _id: user._id, email: user.email, username: user.username };
   const token = jwt.sign(payload, "SOME_SECRET", { expiresIn: "2h" });
 
   const result = {
     _id: user._id,
     accessToken: token,
     email: user.email,
+    username: user.username,
   };
 
   return result;
